@@ -57,13 +57,36 @@
       animation-delay: 1s;
     }
 
-    a {
-      color: #ff4d6d;
-      text-decoration: none;
+    /* Buttons */
+    .btn {
+      display: inline-block;
+      padding: 12px 24px;
+      margin: 15px;
+      border-radius: 8px;
       font-weight: bold;
+      text-decoration: none;
+      transition: background 0.3s ease;
     }
-    a:hover {
-      text-decoration: underline;
+    .home-btn {
+      background: #666;
+      color: white;
+    }
+    .home-btn:hover {
+      background: #444;
+    }
+    .prev-btn {
+      background: #ff4d6d;
+      color: white;
+    }
+    .prev-btn:hover {
+      background: #ff1e56;
+    }
+    .next-btn {
+      background: #6a5acd;
+      color: white;
+    }
+    .next-btn:hover {
+      background: #483d8b;
     }
 
     .promise {
@@ -116,7 +139,12 @@
   <h1>🤝 Happy Promise Day 🤝</h1>
   <div class="date">Wednesday, 11 February 2026</div>
   <div class="quote">"Promises are the uniquely human way of ordering the future." — For you 💙</div>
-  <br><br><a href="index.html">⬅ Back to Home</a>
+  
+  <!-- Navigation Buttons -->
+  <br><br>
+  <a href="teddy.html" class="btn prev-btn">⬅ Previous Day</a>
+  <a href="index.html" class="btn home-btn">🏠 Home</a>
+  <a href="hug.html" class="btn next-btn">Next Day ➡</a>
 
   <!-- Background Music -->
   <audio autoplay loop>
