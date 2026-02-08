@@ -5,7 +5,7 @@
   <title>Propose Day 💍</title>
   <style>
     body {
-      background: linear-gradient(270deg,#ff9a9e,#fad0c4,#ffdde1,#ff758c,#ff1e56);
+      background: linear-gradient(270deg, #a1c4fd, #c2e9fb, #fbc2eb, #a18cd1, #fbc2eb);
       background-size: 1000% 1000%;
       animation: gradientShift 20s ease infinite;
       margin: 0;
@@ -27,8 +27,8 @@
       animation: fadeInText 2s ease forwards, pulseGlow 3s infinite alternate;
     }
     @keyframes pulseGlow {
-      from { text-shadow: 0 0 15px #ff4d6d, 0 0 30px #ff758c; }
-      to { text-shadow: 0 0 30px #ff1e56, 0 0 60px #ff4d6d; }
+      from { text-shadow: 0 0 15px #a18cd1, 0 0 30px #fbc2eb; }
+      to { text-shadow: 0 0 30px #c2e9fb, 0 0 60px #a18cd1; }
     }
     @keyframes fadeInText {
       from { opacity: 0; transform: translateY(-20px); }
@@ -51,24 +51,16 @@
       font-size: 1.4em;
       margin-top: 20px;
       font-style: italic;
-      color: #ff1493;
+      color: #6a5acd;
       opacity: 0;
       animation: fadeInText 2s ease forwards;
       animation-delay: 1s;
     }
 
-    a {
-      color: #ff4d6d;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-
-    .ring {
+    /* Floating hearts */
+    .heart {
       position: absolute;
-      font-size: 70px;
+      font-size: 60px;
       opacity: 0.8;
       animation: drift 10s linear infinite;
     }
@@ -78,84 +70,67 @@
       100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
     }
 
-    .sparkle {
-      position: absolute;
-      width: 6px;
-      height: 6px;
-      background: white;
-      border-radius: 50%;
-      opacity: 0;
-      animation: sparkleDrift 10s linear infinite, sparkleFadeIn 2s ease forwards;
+    /* Buttons */
+    .btn {
+      display: inline-block;
+      padding: 12px 24px;
+      margin: 15px;
+      border-radius: 8px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: background 0.3s ease;
     }
-    @keyframes sparkleDrift {
-      0% { transform: translateY(100vh) scale(0.5); opacity: 0; }
-      50% { opacity: 1; }
-      100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
+    .home-btn {
+      background: #666;
+      color: white;
     }
-    @keyframes sparkleFadeIn {
-      from { opacity: 0; }
-      to { opacity: 0.8; }
+    .home-btn:hover {
+      background: #444;
     }
-
-    .confetti {
-      position: absolute;
-      width: 8px;
-      height: 14px;
-      background: red;
-      opacity: 0.9;
-      transform: rotate(20deg);
-      animation: confettiFall 3s ease-out forwards;
+    .prev-btn {
+      background: #ff4d6d;
+      color: white;
     }
-    @keyframes confettiFall {
-      0% { transform: translateY(-20px) rotate(0deg); opacity: 1; }
-      100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+    .prev-btn:hover {
+      background: #ff1e56;
+    }
+    .next-btn {
+      background: #6a5acd;
+      color: white;
+    }
+    .next-btn:hover {
+      background: #483d8b;
     }
   </style>
 </head>
 <body>
   <h1>💍 Happy Propose Day 💍</h1>
   <div class="date">Sunday, 08 February 2026</div>
-  <div class="quote">"Love is not about how many days, months, or years you’ve been together. It’s about how much you love each other every single day." — For you 💙</div>
-  <br><br><a href="index.html">⬅ Back to Home</a>
+  <div class="quote">"In your smile, I see my forever. Will you be mine?" 💖</div>
+  
+  <!-- Navigation Buttons -->
+  <br><br>
+  <a href="rose.html" class="btn prev-btn">⬅ Previous Day</a>
+  <a href="index.html" class="btn home-btn">🏠 Home</a>
+  <a href="chocolate.html" class="btn next-btn">Next Day ➡</a>
 
   <!-- Background Music -->
   <audio autoplay loop>
     <source src="https://dilip3399.github.io/valentine-week/2.mpeg" type="audio/mpeg">
   </audio>
 
+  <!-- Floating hearts -->
   <script>
-    function createRing(){
-      const r=document.createElement('div');
-      r.classList.add('ring');
-      r.innerHTML='💍';
-      r.style.left=Math.random()*window.innerWidth+'px';
-      r.style.animationDuration=(8+Math.random()*4)+'s';
-      document.body.appendChild(r);
-      setTimeout(()=>r.remove(),12000);
-    } 
-    createRing(); 
-    setInterval(createRing,500);
-
-    function createSparkle(){
-      const s=document.createElement('div');
-      s.classList.add('sparkle');
-      s.style.left=Math.random()*window.innerWidth+'px';
-      s.style.animationDuration=(6+Math.random()*6)+'s';
-      document.body.appendChild(s);
-      setTimeout(()=>s.remove(),12000);
-    } 
-    for(let i=0;i<20;i++){createSparkle();}
-    setInterval(createSparkle,400);
-
-    function createConfetti(){
-      const c=document.createElement('div');
-      c.classList.add('confetti');
-      c.style.left=Math.random()*window.innerWidth+'px';
-      c.style.background=['#ff4d6d','#ff758c','#ffdde1','#fad0c4','#ff1e56'][Math.floor(Math.random()*5)];
-      document.body.appendChild(c);
-      setTimeout(()=>c.remove(),3000);
-    } 
-    for(let i=0;i<80;i++){setTimeout(createConfetti,i*30);}
+    function createHeart(){
+      const heart=document.createElement('div');
+      heart.classList.add('heart');
+      heart.innerHTML='❤️';
+      heart.style.left=Math.random()*window.innerWidth+'px';
+      heart.style.animationDuration=(8+Math.random()*4)+'s';
+      document.body.appendChild(heart);
+      setTimeout(()=>heart.remove(),12000);
+    }
+    createHeart(); setInterval(createHeart,600);
   </script>
 </body>
 </html>
